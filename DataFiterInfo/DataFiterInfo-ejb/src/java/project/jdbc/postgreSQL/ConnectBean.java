@@ -1,4 +1,4 @@
-package project.postgreSQL;
+package project.jdbc.postgreSQL;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;

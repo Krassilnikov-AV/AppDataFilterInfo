@@ -1,5 +1,5 @@
 
-package project.postgreSQL;
+package project.jdbc.postgreSQL;
 
 import javax.ejb.Local;
 

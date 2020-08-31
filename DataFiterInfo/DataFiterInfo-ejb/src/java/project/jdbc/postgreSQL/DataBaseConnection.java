@@ -1,4 +1,4 @@
-package project.postgreSQL;
+package project.jdbc.postgreSQL;
 
 import java.io.FileInputStream;
 import java.io.IOException;
