@@ -10,7 +10,7 @@ import java.util.Date;
  */
 
 
-public interface ProcessRequest {
+ interface ProcessRequest {
     /**
      * метод позволяет добавить к коллекции данных новые данные расписания
      * @param groupId
