@@ -18,8 +18,7 @@ import javax.sql.DataSource;
  * 
  * @author Aleks
  */
-@Entity
-@Table(name="raspisanie")
+
 @LocalBean
 public class HandlerBean implements HandlerBeanLocal {
 
