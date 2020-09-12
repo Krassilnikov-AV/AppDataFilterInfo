@@ -19,7 +19,12 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 
 public class ReadExcelData {
-       
+  /**
+   * основной метод для проверки корректности работы класса 
+   * после включения в веб приложение, закоментировать.
+   * @param args
+   * @throws IOException 
+   */     
      public static void main(String[] args) throws IOException {
         
         ReadExcelData pplb = new ReadExcelData();

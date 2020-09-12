@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 /**
  * Класс HandlerBean
  * - непосредственно взаимодействует с БД
- * - переопределяет методы интерфейса HandlerBeanLocal
+ * - обрабатывает запросы БД (переопределяя методы интерфейса HandlerBeanLocal)
  * 
  * @author Aleks
  */
