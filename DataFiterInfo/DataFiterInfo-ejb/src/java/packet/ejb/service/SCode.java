@@ -9,19 +9,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import jdk.nashorn.internal.objects.annotations.Getter;
 
 
 /**
  * Класс позволяет добавлять код группы в БД
+ * @Entity  // аннотация говорит JPA о работе клкасса с БД
+ * @Table описывает главную таблицу, в которой сохранены данные класса
  * @author Aleks
  */
 
 @Entity  // аннотация говорит JPA о работе клкасса с БД
-  /** @Table описывает главную таблицу, в которой сохранены данные класса
-   * 
-   */
-
+ 
 @Table(name="raspisanie")
 
 public class SCode implements Serializable {  
