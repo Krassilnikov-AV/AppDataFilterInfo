@@ -9,7 +9,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    // добавлениее русского алфавита в БД.
+    // распознавание русского алфавита в JSP.
     request.setCharacterEncoding("UTF-8");
     response.setContentType("text/html;charset=UTF-8");
 %>
