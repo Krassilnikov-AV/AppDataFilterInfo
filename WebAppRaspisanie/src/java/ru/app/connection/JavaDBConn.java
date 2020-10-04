@@ -19,24 +19,14 @@ public class JavaDBConn {
 
         PreparedStatement stm = null;
         ResultSet result = null;
+        String SQL = "";
 
-        String SQL = "insert into contact(value) values (?)";
+        //запрос на внесение прочитанных данных в столбец
+        SQL = "insert into contact(value) values (?)";
 
         try {
             System.out.println("Устанавливаем соединение с БД...");
             conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            /**
-             * String sql = "insert into student_group (student_id, group_id)
-             * values (?, ?)"; //Connection connection = new getConnection();
-             * PreparedStatement ps = connection.prepareStatement(sql); String
-             * student_id = "Какойто_ид_студента"; ArrayList<String> groups = //
-             * это твой лист с группами
-             *
-             * for (Student group : groups) { ps.setString(1, student_id);
-             * ps.setString(2, group); ps.addBatch(); } ps.executeBatch();
-             * ps.close(); connection.close();
-             */
-// вставку данных в столбец, запрос: INSERT INTO таблица(поле1, поле2) VALUES (значение1, значение2)
 
             stm = conn.prepareStatement(SQL);
 
