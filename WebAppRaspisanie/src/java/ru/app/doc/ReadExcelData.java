@@ -21,21 +21,20 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
- * Класс считывающий данные столбца файла Excel в коллекцию
+ * Класс считывающий данные столбца файла Excel в коллекцию List
  *
  * @author Aleks
  */
 public class ReadExcelData {
 
-    /**
-     * основной метод для проверки корректности работы класса после включения в
-     * веб приложение, закоментировать.
+    /**    
      *
      * @param args
      * @throws IOException
      */
     // выбрать столбец для чтения данных (для проверки/тестировниая)
-    final static int c = 5;
+    final static int c = 6;
+    
     String fileName = "PrimerRaspisania.xlsx";
     LinkedList<String> columndata = null;
 
@@ -45,8 +44,7 @@ public class ReadExcelData {
         code.getDateData(c);
 
     }
-// получение данных даты
-
+// метод для получения данных даты в формате "число.месяц.год"
     public List<String> getDateData(int columnIndex) throws ParseException {
 
         try {
@@ -70,12 +68,8 @@ public class ReadExcelData {
                                     String date = "dd.MM.yyyy";
                                     if (DateUtil.isCellDateFormatted(cell)) {  // получение формата даты                                      
                                         SimpleDateFormat sdfDate = new SimpleDateFormat(date);
-                                        sdfDate.parse(date);
                                         columndata.add(sdfDate.format(cell.getDateCellValue()));
-
-                                    } else {
-                                        columndata.add((int) cell.getNumericCellValue() + "");
-                                    }
+                                    } 
                                     break;
                             }
                         }
@@ -92,7 +86,7 @@ public class ReadExcelData {
         }
         return columndata;
     }
-
+// метод для получения данных даты в формате "ЧАСы : минуты"
     public List<String> getTimeData(int columnIndex) throws ParseException {
         try {
             File f = new File(fileName);
@@ -114,12 +108,8 @@ public class ReadExcelData {
                                 case Cell.CELL_TYPE_NUMERIC:
                                     String time = "HH:mm";
                                     if (DateUtil.isCellDateFormatted(cell)) {// получение формата времени
-                                        SimpleDateFormat sdfTime = new SimpleDateFormat(time, Locale.UK);
-                                        sdfTime.parse(time);
+                                        SimpleDateFormat sdfTime = new SimpleDateFormat(time, Locale.UK);                               
                                         columndata.add(sdfTime.format(cell.getDateCellValue()));
-                                    } else {
-                                        System.out.println("Не верно выбран формат для чтения!");
-                                       // columndata.add((int) cell.getNumericCellValue() + "");
                                     }
                                     break;
                             }
@@ -137,7 +127,7 @@ public class ReadExcelData {
         }
         return columndata;
     }
-
+// метод получения строчного или числового значения
     public List<String> getStringIntegerData(int columnIndex) {
         try {
             File f = new File(fileName);
@@ -156,11 +146,11 @@ public class ReadExcelData {
                     if (row.getRowNum() > 0) { //фильтрация заголовков столбцов
                         if (cell.getColumnIndex() == columnIndex) {// соответствие индекса столбца
                             switch (cell.getCellType()) {
-                                case Cell.CELL_TYPE_NUMERIC: // получение целочисленного формата
-                                    columndata.add((int) cell.getNumericCellValue() + "");
-                                    break;
                                 case Cell.CELL_TYPE_STRING: // получение сьрочного формата
                                     columndata.add(cell.getStringCellValue());
+                                    break;
+                                case Cell.CELL_TYPE_NUMERIC: // получение целочисленного формата
+                                    columndata.add((int) cell.getNumericCellValue() + "");
                                     break;
                             }
                         }
