@@ -138,7 +138,7 @@ public class ReadExcelData {
         return columndata;
     }
 
-    public List<String> getStringData(int columnIndex) {
+    public List<String> getStringIntegerData(int columnIndex) {
         try {
             File f = new File(fileName);
             FileInputStream ios = new FileInputStream(f);
