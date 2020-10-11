@@ -61,7 +61,8 @@ public class ReadExcelData {
     public static void main(String[] args) throws IOException, ParseException {
 
         ReadExcelData code = new ReadExcelData();
-        code.getDataStringIntegerDate(ReadExcelData.group);
+        code.getDataStringIntegerDate(ReadExcelData.clasRum);
+    //    code.getDataTime(ReadExcelData.timeEnd);
     }
 
 // метод для получения строчных, целочисленных данных и даты в формате "число.месяц.год"
