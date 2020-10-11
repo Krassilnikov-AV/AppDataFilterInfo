@@ -31,7 +31,7 @@ public class JavaDBConn {
             stm = conn.prepareStatement(SQL);
 
             ReadExcelData read = new ReadExcelData();
-            List<String> list = read.getDateData(0);
+            List<String> list = read.getDataStringIntegerDate(0);
 
             for (String value : list) {
                 stm.setString(1, value);
