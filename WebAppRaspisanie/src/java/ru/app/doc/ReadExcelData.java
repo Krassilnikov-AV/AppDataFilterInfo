@@ -57,7 +57,7 @@ public class ReadExcelData {
 
     String fileName = "PrimerRaspisania.xlsx";
     LinkedList<String> columndata = null;
-
+// основной метод класса для проверки считывания данных с таблицы
     public static void main(String[] args) throws IOException, ParseException {
 
         ReadExcelData code = new ReadExcelData();
