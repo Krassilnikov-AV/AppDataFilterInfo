@@ -33,7 +33,27 @@ public class ReadExcelData {
      * @throws IOException
      */
     // выбрать столбец для чтения данных (для проверки/тестировниая)
-    final static int c = 6;
+    final static int code = 0;    // код (строка)
+    final static int divID = 1;   // ID подразделения (число)
+    final static int gpoupID = 2;   // ID группы  (число)
+    final static int codeGroup = 3;   // код группы  (число)
+    final static int group = 4;   // название группы (строка)
+    final static int dateStart = 5;   // дата начала (дата)
+    final static int timeStart = 6;   // время начала (время)
+    final static int dateEnd = 7;   // дата завершения (дата)
+    final static int timeEnd = 8;   // время завершения (время)
+    final static int classID = 9;   // ID аудитории (число)
+    final static int clasRum = 10;   // №аудитории или вариант (ОнЛайн) (число/строка)
+    final static int typeLearn = 11;   // тип занятия (строка)
+    final static int codeDirectionProgramm = 12;   // код-направление-программа (число-строка)
+    final static int courseID = 13;   // ID курса (число)
+    final static int discipline = 14;   // предмет/дисциплина/программа (число/строка)
+    final static int period = 15;   // период (число)
+    final static int teacherID = 16;   // ID преподавателя (число)
+    final static int teacher = 17;   // преподаватель (строка)
+    final static int periodDay = 18;   // период дней(число)
+    final static int academHour = 19;   // академических часов (число)
+    final static int academRecord = 20;   // академических записей (число)
 
     String fileName = "PrimerRaspisania.xlsx";
     LinkedList<String> columndata = null;
@@ -41,12 +61,11 @@ public class ReadExcelData {
     public static void main(String[] args) throws IOException, ParseException {
 
         ReadExcelData code = new ReadExcelData();
-        code.getDataStringIntegerDate(c);
-
+        code.getDataStringIntegerDate(ReadExcelData.group);
     }
-// метод для получения данных даты в формате "число.месяц.год"
 
-    public List<String> getDataStringIntegerDate(int columnIndex) throws ParseException {
+// метод для получения строчных, целочисленных данных и даты в формате "число.месяц.год"
+    public List<String> getDataStringIntegerDate(int columnIndex)  {
 
         try {
             File f = new File(fileName);
@@ -93,6 +112,7 @@ public class ReadExcelData {
         return columndata;
     }
 // метод для получения данных даты в формате "ЧАСы : минуты"
+
     public List<String> getDataTime(int columnIndex) throws ParseException {
         try {
             File f = new File(fileName);
