@@ -30,8 +30,8 @@ public class JavaDBConn {
 
             stm = conn.prepareStatement(SQL);
 
-            ReadExcelData red = new ReadExcelData();
-            List<String> list = red.extractExcelContentByColumnIndex(0);
+            ReadExcelData read = new ReadExcelData();
+            List<String> list = read.getDateData(0);
 
             for (String value : list) {
                 stm.setString(1, value);
